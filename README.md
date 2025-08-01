@@ -1,59 +1,73 @@
-# moving-average-crossover-backtest
-This project implements and backtests a simple trading strategy based on moving average crossovers using historical stock price data. The goal is to evaluate how effective this strategy would have been over time and explore its potential risks and rewards.
 
-## Problem Statement
-Retail investors often use moving average (MA) indicators to make trading decisions. One popular approach is the Moving Average Crossover Strategy, where a short-term MA crossing above a long-term MA signals a buy, and a downward cross signals a sell.
+# Moving Average Crossover Backtest – NVDA
 
-Can this simple rule-based strategy outperform a passive "buy and hold" approach?
+### Project Overview
 
-## Tools & Technologies
-Python
+This project implements and evaluates a simple **moving average crossover strategy** on **Nvidia (NVDA)** stock using Python. The goal is to assess how a rule-based trading approach compares to a passive "buy-and-hold" investment over the period from 2015 to 2024.
 
-Pandas – data manipulation
+---
 
-yfinance – to fetch historical stock data
+### Strategy Logic
 
-Matplotlib / Seaborn / Plotly – visualization
+The **Moving Average Crossover Strategy** generates trading signals based on the relationship between two moving averages:
 
-NumPy – numerical calculations
+* **Short-Term MA**: 50-day moving average
+* **Long-Term MA**: 200-day moving average
 
-Jupyter Notebook – interactive exploration
+**Buy Signal**: When the 50-day MA crosses above the 200-day MA
+**Sell Signal**: When the 50-day MA crosses below the 200-day MA
 
-## Strategy Logic
-Short-Term MA (e.g., 50-day)
+---
 
-Long-Term MA (e.g., 200-day)
+### Tools & Technologies
 
-Buy Signal: When short-term MA crosses above long-term MA
+* Python (Jupyter Notebook)
+* `pandas`, `numpy` – data manipulation
+* `yfinance` – stock data retrieval
+* `matplotlib`, `seaborn` – visualizations
 
-Sell Signal: When short-term MA crosses below long-term MA
+---
 
-## Data Used
-Source: Yahoo Finance via yfinance
+### Data Source
 
-Stock Ticker: (e.g., AAPL, MSFT, SPY — can be changed)
+* **Ticker**: NVDA (Nvidia Corporation)
+* **Date Range**: January 2015 – December 2024
+* **Source**: Yahoo Finance via `yfinance` package
+* **Auto-adjusted prices** to account for stock splits and dividends
 
-Date Range: Default is past 10 years
+---
 
-## Key Metrics Evaluated
-Cumulative Returns
+### Performance Evaluation
 
-Daily Returns
+| Metric           | Strategy | Buy & Hold |
+| ---------------- | -------- | ---------- |
+| **Total Return** | `26110.30%` | `28357.38%`   |
+| **Sharpe Ratio** | `1.54`  | `1.41`    |
 
-Volatility
 
-Sharpe Ratio
+**Interpretation**:
+Both the strategy and a buy-and-hold approach delivered exceptional returns on NVDA from 2015 to 2024, reflecting the company’s explosive long-term growth. While buy-and-hold slightly outperformed in total return, the moving average crossover strategy achieved comparable gains with the added benefit of potentially reduced exposure during market downturns. This demonstrates how simple rule-based signals can track performance while offering a more controlled risk profile.
+---
 
-Maximum Drawdown
+### Visuals Included
 
-Win Rate of Trades
+* Equity curve: Strategy vs. Buy & Hold
+* Buy/Sell signal plot with price + moving averages
+* Distribution of daily returns
 
-## Sample Visuals (to include)
-Equity Curve: Strategy vs Buy & Hold
+---
 
-Signal Plot: Buy/Sell markers on stock price
+### Key Takeaways
 
-Histogram of daily returns
+* Backtesting provides a data-driven way to evaluate trading logic
+* Strategy success depends on market conditions (e.g., trending vs. volatile)
+* Even simple strategies can yield insights into market behavior and timing
 
-Rolling Sharpe ratio
+---
 
+### Next Steps
+
+* Test on other tickers (e.g., SPY, TSLA, MSFT)
+* Try different MA window combinations (e.g., 10/50 or 20/100)
+* Add more metrics: max drawdown, trade count, win rate
+* Build a Streamlit app to interactively visualize strategy performance
