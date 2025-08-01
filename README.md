@@ -46,6 +46,7 @@ The **Moving Average Crossover Strategy** generates trading signals based on the
 
 
 **Interpretation**:
+
 Both the strategy and a buy-and-hold approach delivered exceptional returns on NVDA from 2015 to 2024, reflecting the company’s explosive long-term growth. While buy-and-hold slightly outperformed in total return, the moving average crossover strategy achieved comparable gains with the added benefit of potentially reduced exposure during market downturns. This demonstrates how simple rule-based signals can track performance while offering a more controlled risk profile.
 ---
 
